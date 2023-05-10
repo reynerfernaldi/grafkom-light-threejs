@@ -112,6 +112,9 @@ hlFolder
 .addColor(hlSettings, 'color')
 .onChange((value) => hl.groundColor.set(value));
 hlFolder.add(hl, 'intensity', -2, 4, 0.5);
+hlFolder.add(hl.position, 'x', -2, 4, 0.5);
+hlFolder.add(hl.position, 'y', -2, 4, 0.5);
+hlFolder.add(hl.position, 'z', -2, 4, 0.5);
 hlFolder.open();
 
 
@@ -164,14 +167,46 @@ const plSettings = {
 	plFolder.open();
 
 
+	//rectarealight
 
-// mainGroup.add(al);
+// const rl = new THREE.RectAreaLight(0xffffff, 1, 10, 10)
+// rl.position.set( 5, 5, 0 );
+// rl.lookAt( 0, 0, 0 );
+
+// // const rlHelper = new RectAreaLightHelper( rl );
+// // rl.add( rlHelper );
+
+// 	const rlSettings = {
+// 		visible: true,
+// 		color: rectArea.color.getHex(),
+// 	  };
+
+// 	const rlFolder = gui.addFolder('rect area light');
+// 	rlFolder.add(rlSettings, 'visible').onChange((value) => {
+// 		rl.visible = value;
+// 		// rectAreaHelper.visible = value;
+// 	});
+
+// 	rlFolder.add(rl, 'intensity', 0, 2, 0.25);
+// 	rlFolder.add(rl.position, 'x', -2, 4, 0.5);
+// 	rlFolder.add(rl.position, 'y', -2, 4, 0.5);
+// 	rlFolder.add(rl.position, 'z', -2, 4, 0.5);
+// 	rlFolder.add(rl, 'castShadow');
+// 	rlFolder
+// 	.addColor(rlSettings, 'color')
+// 	.onChange((value) => rectArea.color.set(value));
+// 	rlFolder.open();
+
+
+mainGroup.add(al);
 
 // mainGroup.add(dl);
 // mainGroup.add(dlHelper);
 
 // mainGroup.add(sl, slHelper);
 
-mainGroup.add( hl );
+// mainGroup.add( hl );
 
 // mainGroup.add(pl, plHelper);
+
+// mainGroup.add(rl)
