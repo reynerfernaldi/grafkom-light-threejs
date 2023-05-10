@@ -122,7 +122,7 @@ hlFolder.open();
 
 // set up spot light + helper
 // Spotlight(color, intensity, distance, angle, penumbra, decay)
-const sl = new THREE.SpotLight(0x00ff00, 1, 8, Math.PI / 8, 0);
+const sl = new THREE.SpotLight(0x00ff00, 1, 8, Math.PI / 8, 0, 1);
 sl.position.set(0, 3, 0);
 sl.castShadow = true;
 const slHelper = new THREE.SpotLightHelper(sl);
@@ -140,6 +140,7 @@ const slSettings = {
 	slFolder.add(sl, 'distance', 0, 10);
 	slFolder.add(sl, 'angle', Math.PI / 16, Math.PI / 2, Math.PI / 16);
 	slFolder.add(sl, 'penumbra', 0, 1, 0.5);
+	slFolder.add(sl, 'decay', 0, 4, 0.5);
 	slFolder.add(sl, 'castShadow');
 	slFolder.open();
 
@@ -209,10 +210,10 @@ const plSettings = {
 // mainGroup.add(dl);
 // mainGroup.add(dlHelper);
 
-// mainGroup.add(sl, slHelper);
+mainGroup.add(sl, slHelper);
 
 // mainGroup.add( hl );
 
-mainGroup.add(pl, plHelper);
+// mainGroup.add(pl, plHelper);
 
-// mainGroup.add(rl)
+// mainGroup.add(rl);
