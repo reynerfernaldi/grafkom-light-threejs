@@ -80,7 +80,9 @@ const dlSettings = {
 	dlHelper.visible = value;
 	});
 	dlFolder.add(dl, 'intensity', 0, 1, 0.25);
-	dlFolder.add(dl.position, 'y', 1, 4, 0.5);
+	dlFolder.add(dl.position, 'y', -1, 4, 0.5);
+	dlFolder.add(dl.position, 'x', -1, 4, 0.5);
+	dlFolder.add(dl.position, 'z', -1, 4, 0.5);
 	dlFolder.add(dl, 'castShadow');
 	dlFolder
 	.addColor(dlSettings, 'color')
@@ -121,7 +123,7 @@ hlFolder.open();
 // set up spot light + helper
 // Spotlight(color, intensity, distance, angle, penumbra, decay)
 const sl = new THREE.SpotLight(0x00ff00, 1, 8, Math.PI / 8, 0);
-sl.position.set(0, 2, 2);
+sl.position.set(0, 3, 0);
 sl.castShadow = true;
 const slHelper = new THREE.SpotLightHelper(sl);
 
@@ -135,7 +137,9 @@ const slSettings = {
 	slHelper.visible = value;
 	});
 	slFolder.add(sl, 'intensity', 0, 4, 0.5);
+	slFolder.add(sl, 'distance', 0, 10);
 	slFolder.add(sl, 'angle', Math.PI / 16, Math.PI / 2, Math.PI / 16);
+	slFolder.add(sl, 'penumbra', 0, 1, 0.5);
 	slFolder.add(sl, 'castShadow');
 	slFolder.open();
 
@@ -160,6 +164,8 @@ const plSettings = {
 	plFolder.add(pl.position, 'x', -2, 4, 0.5);
 	plFolder.add(pl.position, 'y', -2, 4, 0.5);
 	plFolder.add(pl.position, 'z', -2, 4, 0.5);
+	plFolder.add(pl, 'distance', 0, 10, 0.5);
+	plFolder.add(pl, 'decay', 0, 4, 0.5);
 	plFolder.add(pl, 'castShadow');
 	plFolder
 	.addColor(plSettings, 'color')
@@ -198,7 +204,7 @@ const plSettings = {
 // 	rlFolder.open();
 
 
-mainGroup.add(al);
+// mainGroup.add(al);
 
 // mainGroup.add(dl);
 // mainGroup.add(dlHelper);
@@ -207,6 +213,6 @@ mainGroup.add(al);
 
 // mainGroup.add( hl );
 
-// mainGroup.add(pl, plHelper);
+mainGroup.add(pl, plHelper);
 
 // mainGroup.add(rl)
